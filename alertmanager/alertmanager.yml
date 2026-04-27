@@ -1,0 +1,21 @@
+global:
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'mcaprojectalert@gmail.com'
+  smtp_auth_username: 'mcaprojectalert@gmail.com'
+  smtp_auth_password: 'yixa uxro sxap lzry'
+  smtp_require_tls: true
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 30s
+  repeat_interval: 1h
+  receiver: 'email-alert'
+
+receivers:
+  - name: 'email-alert'
+    email_configs:
+      - to: 'mcaprojectalert@gmail.com'
+        send_resolved: true
+        headers:
+          subject: '{{ if eq .Status "firing" }}🚨 ALERT: {{ .CommonLabels.alertname }}{{ else }}✅ RESOLVED: {{ .CommonLabels.alertname }}{{ end }}'

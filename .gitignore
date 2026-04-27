@@ -1,0 +1,18 @@
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# Docker volumes / data
+data/
+*.db
+
+# Node exporter temp
+node_exporter*
+
+# Sensitive files
+*.env
+
+# Kibana/Elastic data
+elasticsearch-data/

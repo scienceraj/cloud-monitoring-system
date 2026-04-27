@@ -1,0 +1,29 @@
+groups:
+  - name: system_alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[1m])) * 100) > 70
+        for: 10s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU Usage detected"
+          description: "CPU usage is above 70%"
+
+      - alert: HighMemoryUsage
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 80
+        for: 10s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High Memory Usage detected"
+          description: "Memory usage is above 80%"
+
+      - alert: HighDiskUsage
+        expr: (1 - (node_filesystem_avail_bytes{mountpoint="/",fstype!~"tmpfs|overlay"} / node_filesystem_size_bytes{mountpoint="/",fstype!~"tmpfs|overlay"})) * 100 > 80
+        for: 10s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High Disk Usage detected"
+          description: "Disk usage is above 80%"
