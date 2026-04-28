@@ -2,7 +2,7 @@ global:
   smtp_smarthost: 'smtp.gmail.com:587'
   smtp_from: 'mcaprojectalert@gmail.com'
   smtp_auth_username: 'mcaprojectalert@gmail.com'
-  smtp_auth_password: 'yixa uxro sxap lzry'
+  smtp_auth_password: 'your_app_password'
   smtp_require_tls: true
 
 route:
