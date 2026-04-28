@@ -37,8 +37,6 @@ The system is built using modern DevOps tools like **Prometheus, Grafana, Alertm
 
 ![Architecture](images/architecture.png)
 
-> 🔹 Replace this with your actual architecture diagram screenshot
-
 ---
 
 ## ⚙️ Project Structure
@@ -139,7 +137,7 @@ MCA Final Year Student
 
 ---
 
-## ⭐ Final Thoughts
+
 
 This project demonstrates how multiple open-source tools can be integrated to build a **complete and scalable monitoring solution**.  
 It improves system visibility, enables faster issue detection, and supports proactive system management.
